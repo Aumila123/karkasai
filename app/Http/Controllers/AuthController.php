@@ -21,7 +21,7 @@ class AuthController extends Controller
 
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
-            return redirect()->intended('conferences')->with('success', 'Welcome back!');
+            return redirect()->intended('conferences')->with('success', __('messages.welcome_back'));
         }
 
         return back()->withErrors([
@@ -34,6 +34,6 @@ class AuthController extends Controller
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
-        return redirect()->route('login')->with('success', 'You have been logged out.');
+        return redirect()->route('login')->with('success', __('messages.logged_out'));
     }
 }

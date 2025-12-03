@@ -28,7 +28,7 @@ class ConferenceController extends Controller
             'address' => 'required',
         ]);
         Conference::create($validated);
-        return redirect()->route('conferences.index') -> with('success', 'Conference created successfully!');
+        return redirect()->route('conferences.index') -> with('success', __('messages.conference_created'));
     }
 
     /**
@@ -59,7 +59,7 @@ class ConferenceController extends Controller
             'address' => 'required',
         ]);
         $conference->update($validated);
-        return redirect()->route('conferences.index') -> with('success', 'Conference updated successfully!');
+        return redirect()->route('conferences.index') -> with('success', __('messages.conference_updated'));
     }
 
     /**
@@ -68,6 +68,6 @@ class ConferenceController extends Controller
     public function destroy(Conference $conference)
     {
         $conference->delete();
-        return redirect()->route('conferences.index') -> with('success', 'Conference deleted successfully!');
+        return redirect()->route('conferences.index') -> with('success', __('messages.conference_deleted'));
     }
 }

@@ -9,15 +9,15 @@
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
-        <a class="navbar-brand" href="{{ route('conferences.index') }}">Conference System</a>
+        <a class="navbar-brand" href="{{ route('conferences.index') }}">{{ __('messages.conference_system') }}</a>
         <div class="navbar-nav ms-auto">
             @auth
                 <form action="{{ route('logout') }}" method="POST" class="d-inline">
                     @csrf
-                    <button type="submit" class="btn btn-outline-light btn-sm">Logout</button>
+                    <button type="submit" class="btn btn-outline-light btn-sm">{{ __('messages.logout') }}</button>
                 </form>
             @else
-                <a href="{{ route('login') }}" class="btn btn-outline-light btn-sm">Login</a>
+                <a href="{{ route('login') }}" class="btn btn-outline-light btn-sm">{{ __('messages.login') }}</a>
             @endauth
         </div>
     </div>

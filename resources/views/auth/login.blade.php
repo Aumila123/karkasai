@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - Conference System</title>
+    <title>{{ __('messages.conference_system') }}</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body class="bg-light">
@@ -12,8 +12,8 @@
         <div class="col-md-5">
             <div class="card shadow">
                 <div class="card-header text-center bg-dark text-white">
-                    <h3>Conference System</h3>
-                    <p class="mb-0">Admin Login</p>
+                    <h3>{{ __('messages.conference_system') }}</h3>
+                    <p class="mb-0">{{ __('messages.admin_login') }}</p>
                 </div>
                 <div class="card-body p-4">
                     @if ($errors->any())
@@ -30,7 +30,7 @@
                         @csrf
 
                         <div class="mb-3">
-                            <label for="email" class="form-label">Email Address</label>
+                            <label for="email" class="form-label">{{ __('messages.email_address') }}</label>
                             <input type="email"
                                    class="form-control @error('email') is-invalid @enderror"
                                    id="email"
@@ -44,7 +44,7 @@
                         </div>
 
                         <div class="mb-3">
-                            <label for="password" class="form-label">Password</label>
+                            <label for="password" class="form-label">{{ __('messages.password') }}</label>
                             <input type="password"
                                    class="form-control @error('password') is-invalid @enderror"
                                    id="password"
@@ -56,8 +56,8 @@
                         </div>
 
                         <div class="d-grid gap-2">
-                            <button type="submit" class="btn btn-primary btn-lg">Login</button>
-                            <a href="{{ route('conferences.index') }}" class="btn btn-outline-secondary">View Conferences as Guest</a>
+                            <button type="submit" class="btn btn-primary btn-lg">{{ __('messages.login') }}</button>
+                            <a href="{{ route('conferences.index') }}" class="btn btn-outline-secondary">{{ __('messages.view_as_guest') }}</a>
                         </div>
                     </form>
                 </div>

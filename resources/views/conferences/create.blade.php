@@ -5,14 +5,14 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">
-                    <h4>Add New Conference</h4>
+                    <h4>{{ __('messages.add_new_conference') }}</h4>
                 </div>
                 <div class="card-body">
                     <form action="{{ route('conferences.store') }}" method="POST">
                         @csrf
 
                         <div class="mb-3">
-                            <label for="title" class="form-label">Title</label>
+                            <label for="title" class="form-label">{{ __('messages.title') }}</label>
                             <input type="text"
                                    class="form-control @error('title') is-invalid @enderror"
                                    id="title"
@@ -25,7 +25,7 @@
                         </div>
 
                         <div class="mb-3">
-                            <label for="description" class="form-label">Description</label>
+                            <label for="description" class="form-label">{{ __('messages.description') }}</label>
                             <textarea class="form-control @error('description') is-invalid @enderror"
                                       id="description"
                                       name="description"
@@ -37,7 +37,7 @@
                         </div>
 
                         <div class="mb-3">
-                            <label for="date" class="form-label">Date</label>
+                            <label for="date" class="form-label">{{ __('messages.date') }}</label>
                             <input type="date"
                                    class="form-control @error('date') is-invalid @enderror"
                                    id="date"
@@ -50,7 +50,7 @@
                         </div>
 
                         <div class="mb-3">
-                            <label for="address" class="form-label">Address</label>
+                            <label for="address" class="form-label">{{ __('messages.address') }}</label>
                             <input type="text"
                                    class="form-control @error('address') is-invalid @enderror"
                                    id="address"
@@ -63,8 +63,8 @@
                         </div>
 
                         <div class="d-flex gap-2">
-                            <button type="submit" class="btn btn-primary">Add Conference</button>
-                            <a href="{{ route('conferences.index') }}" class="btn btn-secondary">Cancel</a>
+                            <button type="submit" class="btn btn-primary">{{ __('messages.add_conference') }}</button>
+                            <a href="{{ route('conferences.index') }}" class="btn btn-secondary">{{ __('messages.cancel') }}</a>
                         </div>
                     </form>
                 </div>
