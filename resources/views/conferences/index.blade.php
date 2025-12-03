@@ -3,7 +3,9 @@
 @section('content')
     <div class="d-flex justify-content-between align-items-center mb-4">
         <h1>Conferences</h1>
+        @auth
         <a href="{{ route('conferences.create') }}" class="btn btn-primary">Add New Conference</a>
+        @endauth
     </div>
 
     @if($conferences->count() > 0)
@@ -20,12 +22,14 @@
                             </p>
                             <div class="btn-group">
                                 <a href="{{ route('conferences.show', $conference) }}" class="btn btn-sm btn-info">View</a>
+                                @auth
                                 <a href="{{ route('conferences.edit', $conference) }}" class="btn btn-sm btn-warning">Edit</a>
-                                <form action="{{ route('conferences.destroy', $conference) }}" method="POST" style="display:inline;">
+                                <form action="{{ route('conferences.destroy', $conference) }}" method="POST" style="display:inline;" class="delete-form">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure?')">Delete</button>
+                                    <button type="button" class="btn btn-sm btn-danger delete-btn">Delete</button>
                                 </form>
+                                @endauth
                             </div>
                         </div>
                     </div>

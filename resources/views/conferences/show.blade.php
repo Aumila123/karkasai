@@ -33,7 +33,7 @@
                     </div>
 
                     <hr class="my-4">
-
+                    @auth
                     <div class="d-flex gap-2">
                         <a href="{{ route('conferences.edit', $conference) }}" class="btn btn-warning">Edit</a>
                         <form action="{{ route('conferences.destroy', $conference) }}" method="POST" style="display:inline;">
@@ -42,6 +42,7 @@
                             <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this conference?')">Delete</button>
                         </form>
                     </div>
+                    @endauth
                 </div>
             </div>
         </div>

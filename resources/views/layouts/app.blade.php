@@ -11,7 +11,14 @@
     <div class="container">
         <a class="navbar-brand" href="{{ route('conferences.index') }}">Conference System</a>
         <div class="navbar-nav ms-auto">
-            <!-- Logout button will be here later -->
+            @auth
+                <form action="{{ route('logout') }}" method="POST" class="d-inline">
+                    @csrf
+                    <button type="submit" class="btn btn-outline-light btn-sm">Logout</button>
+                </form>
+            @else
+                <a href="{{ route('login') }}" class="btn btn-outline-light btn-sm">Login</a>
+            @endauth
         </div>
     </div>
 </nav>
