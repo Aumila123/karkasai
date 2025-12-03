@@ -17,8 +17,8 @@
                             <h5 class="card-title">{{ $conference->title }}</h5>
                             <p class="card-text">{{ Str::limit($conference->description, 100) }}</p>
                             <p class="text-muted">
-                                <strong>{{ __('messages.date') }}:</strong>
-                                <strong>{{ __('messages.location') }}:</strong>
+                                <strong>{{ __('messages.date') }}:</strong> {{ $conference->date }}<br>
+                                <strong>{{ __('messages.location') }}:</strong> {{ $conference->address }}
                             </p>
                             <div class="btn-group">
                                 <a href="{{ route('conferences.show', $conference) }}" class="btn btn-sm btn-info">{{ __('messages.view') }}</a>

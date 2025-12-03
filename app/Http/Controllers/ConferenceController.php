@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Conference;
 use Illuminate\Http\Request;
-
+use App\Http\Requests\ConferenceRequest;
 class ConferenceController extends Controller
 {
     public function index()
@@ -19,14 +19,9 @@ class ConferenceController extends Controller
         return view('conferences.create');
     }
 
-    public function store(Request $request)
+    public function store(ConferenceRequest $request)
     {
-        $validated = $request->validate([
-            'title' => 'required',
-            'description' => 'required',
-            'date' => 'required',
-            'address' => 'required',
-        ]);
+        $validated = $request->validated();
         Conference::create($validated);
         return redirect()->route('conferences.index') -> with('success', __('messages.conference_created'));
     }
@@ -50,14 +45,9 @@ class ConferenceController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Conference $conference)
+    public function update(ConferenceRequest $request, Conference $conference)
     {
-        $validated = $request->validate([
-            'title' => 'required',
-            'description' => 'required',
-            'date' => 'required',
-            'address' => 'required',
-        ]);
+        $validated = $request->validated();
         $conference->update($validated);
         return redirect()->route('conferences.index') -> with('success', __('messages.conference_updated'));
     }
